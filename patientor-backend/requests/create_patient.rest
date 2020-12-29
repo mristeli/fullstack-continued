@@ -1,0 +1,10 @@
+POST http://localhost:3001/api/patients
+Content-Type: application/json
+
+{
+  "name": "Arnold Schwarzenegger",
+  "dateOfBirth": "1983-01-01",
+  "ssn": "010183-123X",
+  "gender": "other",
+  "occupation": "Destroyer of Worlds"
+}
