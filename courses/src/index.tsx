@@ -63,25 +63,34 @@ const Header: React.FC<{ name: string }> = ({ name }) => {
 }
 
 const Part: React.FC<{ content: CoursePart}> = ({content}) => {
+  const Defaults = () => <div>
+    <p>Name: {content.name}</p>
+    <p>exerciseCount: {content.exerciseCount}</p>
+  </div>
+
   switch (content.name) {
     case "Fundamentals":
       return <div>
+        <Defaults></Defaults>
         <p>description: {content.description}</p>
        </div>
     case "Using props to pass data":
       return <div>
+        <Defaults></Defaults>
         <p>groupProjectCount: {content.groupProjectCount}</p>
-       </div>
+      </div>
     case "Deeper type usage":
       return <div>
+        <Defaults></Defaults>
         <p>description: {content.description}</p>
         <p>exerciseSubmissionLink: {content.exerciseSubmissionLink}</p>
-       </div>
+      </div>
     case "Functional patterns with TypeScript":
       return <div>
+        <Defaults></Defaults>
         <p>description: {content.description}</p>
         <p>url: {content.url}</p>
-       </div>
+      </div>
     default:
       return assertNever(content);
   }
@@ -91,13 +100,9 @@ const Content: React.FC<{ parts: Array<CoursePart>}> = ({ parts }) => {
   return (
     <div> 
       { parts.map(part => (
-        <div key={part.name}>
-          <p>Name: {part.name}</p>
-          <p>exerciseCount: {part.exerciseCount}</p>
           <Part key={part.name} content={ part} ></Part>
-        </div>
-        ))  
-    }
+      ))  
+     }
     </div>
   )
 }
