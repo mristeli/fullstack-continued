@@ -1,0 +1,30 @@
+{
+  "name": "part9",
+  "version": "0.0.1",
+  "description": "TypeScript exercises for Fullstack Open",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "dev": "ts-node-dev index.ts",
+    "lint": "eslint --ext .ts .",
+    "calculateBmi": "ts-node bmiCalculator.ts",
+    "calculateExercises": "ts-node exerciseCalculator.ts"
+  },
+  "keywords": [
+    "TypeScript",
+    "node",
+    "ts-node"
+  ],
+  "author": "Matti Risteli",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.9",
+    "@typescript-eslint/eslint-plugin": "^4.11.0",
+    "@typescript-eslint/parser": "^4.11.0",
+    "eslint": "^7.16.0",
+    "ts-node-dev": "^1.1.1"
+  }
+}
