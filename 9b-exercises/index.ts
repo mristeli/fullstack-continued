@@ -49,10 +49,7 @@ app.post('/exercises', (req, res) => {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const isValidExerciseInput = (data: any): data is Array<number> => {
-  if (Array.isArray(data)) {
-    return data.every(next => typeof next === "number");
-  }
-  return false;
+  return Array.isArray(data) && data.every(next => typeof next === "number");
 };
 
 const PORT = 3002;
