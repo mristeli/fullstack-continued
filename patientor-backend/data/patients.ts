@@ -90,6 +90,15 @@ const patients: Patient[] = [
           'Yearly control visit. Due to high cholesterol levels recommended to eat more vegetables.',
         healthCheckRating: 1,
       },
+      {
+        id: '37be178f-a432-4ba4-aac2-fllf10e36a15',
+        date: '2021-01-14',
+        specialist: 'MD House',
+        type: 'HealthCheck',
+        description:
+          'Chronic inflammation of the pancreas.',
+        healthCheckRating: 3,
+      },
     ],
   },
   {
@@ -107,6 +116,14 @@ const patients: Patient[] = [
         type: 'HealthCheck',
         description: 'Digital overdose, very bytestatic. Otherwise healthy.',
         healthCheckRating: 0,
+      },
+      {
+        id: '54a8746e-34c4-4cf4-bf72-bfecd039be9a',
+        date: '2021-01-13',
+        specialist: 'Dr Risteli',
+        type: 'HealthCheck',
+        description: 'Doesn\'t do anything productive. Only React + TypeScript.',
+        healthCheckRating: 2,
       },
     ],
   },

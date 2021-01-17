@@ -5,8 +5,8 @@ const getEntries = (): Diagnosis[] => {
   return diagnoses;
 };
 
-const addEntry = () => {
-  return null;
+const addEntry = (): undefined => {
+  return undefined;
 };
 
 export default {
