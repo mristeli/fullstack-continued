@@ -7,7 +7,7 @@ import { NewPatientEntry, Gender, HealthCheckRating, NewDiagnosisEntry, VisitTyp
 export const toNewPatientEntry = (object: any): NewPatientEntry => {
   const newEntry: NewPatientEntry = {
     name: parseString('name', object.name),
-    dateOfBirth: parseDate(object.dateOfBirth),
+    dateOfBirth: parseDate('dateOfBirth', object.dateOfBirth),
     ssn: parseString('ssn', object.ssn),
     gender: parseGender(object.gender),
     occupation: parseString('occupation', object.occupation),
@@ -19,7 +19,7 @@ export const toNewPatientEntry = (object: any): NewPatientEntry => {
 export const toNewDiagnosisEntry = (object: any): NewDiagnosisEntry => {
   const newEntry = {
     description: parseString('desciption', object.description),
-    date: parseDate(object.date), 
+    date: parseDate('date', object.date), 
     specialist: parseString('specialist', object.specialist),
     diagnosisCodes: parseDiagnosisCodes(object.diagnosisCodes), 
   };
@@ -54,8 +54,8 @@ const parseSickLeave = (value: any): { startDate: string, endDate: string } | un
     throw new Error('Incorrect or missing sick leave: ' + value);
   }
   return {
-    startDate: parseDate(value.startDate), 
-    endDate: parseDate(value.endDate)
+    startDate: parseDate('sickLeave.startDate', value.startDate), 
+    endDate: parseDate('sickLeave.endDate', value.endDate)
   };
 };
 
@@ -64,8 +64,8 @@ const parseDischarge = (value: any): { date: string, criteria: string } => {
     throw new Error('Incorrect or missing discharge: ' + value);
   }
   return {
-    date: parseDate(value.date),
-    criteria: parseString('criteria', value.criteria) 
+    date: parseDate('discharge.date', value.date),
+    criteria: parseString('discharge.criteria', value.criteria) 
   };
 };
 
@@ -74,7 +74,7 @@ const isHealthCheckRating = (value: any): value is HealthCheckRating => {
 };
 
 const parseHealthCheckRating = (value: any): HealthCheckRating => {
-  if (!value || !isHealthCheckRating(value)) {
+  if ((value !== 0 && !value) || !isHealthCheckRating(value)) {
     throw new Error('Incorrect or missing HealthCheckRating: ' + value);
   }
   return value;
@@ -114,10 +114,10 @@ const isDate = (date: string): boolean => {
   return Boolean(Date.parse(date));
 };
 
-const parseDate = (date: any): string => {
+const parseDate = (field: string, date: any): string => {
   if (!date || !isString(date) || !isDate(date)) {
-      throw new Error('Incorrect or missing date of birth: ' + date);
-  }    
+      throw new Error(`Incorrect or missing date ${field}: ` + date);
+  }     
   return date;
 };  
 
