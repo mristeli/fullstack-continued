@@ -118,7 +118,7 @@ const patients: Patient[] = [
         healthCheckRating: 0,
       },
       {
-        id: '54a8746e-34c4-4cf4-bf72-bfecd039be9a',
+        id: '54a8747e-34c4-4cf4-bf72-bfecd039be9a',
         date: '2021-01-13',
         specialist: 'Dr Risteli',
         type: 'HealthCheck',
